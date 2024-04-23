@@ -1,0 +1,26 @@
+data_CONTCAR_surface-O-defect_OH
+_audit_creation_date              2023-01-17
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    11.1038
+_cell_length_b                    11.2002
+_cell_length_c                    32.4346
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+O95    O     0.37685   0.61837   0.47683   0.00000  Uiso   1.00
+H      H     0.37172   0.63042   0.53362   0.00000  Uiso   1.00

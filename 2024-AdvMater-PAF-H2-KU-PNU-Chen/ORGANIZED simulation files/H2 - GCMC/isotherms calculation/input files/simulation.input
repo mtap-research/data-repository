@@ -1,0 +1,31 @@
+SimulationType MonteCarlo
+NumberOfCycles 10000
+NumberOfInitializationCycles  6000
+PrintEvery 2000
+PrintPropertiesEvery 2000
+RestartFile  no
+
+Forcefield Local
+UseChargesFromCIFFile yes
+RemoveAtomNumberCodeFromLabel yes
+ChargeMethod Ewald
+CutOffVDW 12.8
+
+ContinueAfterCrash  no
+WriteBinaryRestartFileEvery 10000
+
+Movies              no
+
+Framework 0
+FrameworkName ${struc_name}
+UnitCells 	1	1	1
+ExternalTemperature 	${temperature}
+ExternalPressure ${pressure}
+
+Component 0 MoleculeName H2
+		MoleculeDefinition  Local
+		TranslationProbability 1.0
+		ReinsertionProbability 1.0
+		RotationProbability 1.0
+		SwapProbability 1.0
+		FugacityCoefficient 1.0

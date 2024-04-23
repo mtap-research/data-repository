@@ -1,0 +1,13 @@
+SimulationType MakeGrid
+
+Forcefield Local
+
+Framework 0
+FrameworkName 2_all_50
+UnitCells 	1	1	2
+
+NumberOfGrids 2
+GridTypes H_com H_h2
+SpacingVDWGrid 0.1
+SpacingCoulombGrid 0.1
+

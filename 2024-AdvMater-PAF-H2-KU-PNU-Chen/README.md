@@ -1,6 +1,6 @@
 # High Hydrogen Storage in Trigonal Prismatic Monomer-based Highly Porous Aromatic Frameworks
 
-* Publication: Advanced Materials (Accepted)
+* Publication: Advanced Materials
   
 * DOI: [10.1002/adma.202401739](https://doi.org/10.1002/adma.202401739)
 

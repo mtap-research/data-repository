@@ -1,0 +1,11 @@
+﻿GBR_LF,GBR_GWP,RF_LF,RF_GWP,DT_LF,DT_GWP,Lasso_LF,Lasso_GWP,Kr_LF,Kr_GWP,Ada_LF,Ada_GWP,SVR_LF,SVR_GWP,KNN_LF,KNN_GWP,MLP_LF,MLP_GWP
+IP,FractionCSP3,IP,IP,IP,IP,IP,SMR_VSA7,fr_allylic_oxid,fr_methoxy,IP,IP,IP,IP,FractionCSP3,fr_ester,HomoLumoGap,HomoLumoGap
+SMR_VSA7,fr_halogen,MinAbsEStateIndex,qed,MinAbsEStateIndex,FractionCSP3,SMR_VSA7,IP,FractionCSP3,EState_VSA2,MinAbsEStateIndex,qed,FractionCSP3,FractionCSP3,SMR_VSA7,EState_VSA5,Chi2n,BCUT2D_LOGPLOW
+fr_halogen,IP,FpDensityMorgan3,FractionCSP3,FractionCSP3,BCUT2D_LOGPHI,MinAbsEStateIndex,fr_ketone,SlogP_VSA6,PEOE_VSA1,FpDensityMorgan3,FractionCSP3,SMR_VSA7,SMR_VSA7,SlogP_VSA6,PEOE_VSA11,MolMR,MolMR
+Chi2v,SMR_VSA7,FractionCSP3,SMR_VSA7,FpDensityMorgan3,qed,FpDensityMorgan3,SlogP_VSA5,SMR_VSA7,SMR_VSA6,BCUT2D_MWHI,Chi2v,SlogP_VSA6,SlogP_VSA6,IP,fr_ketone,Chi1n,fr_halogen
+FractionCSP3,ExactMolWt,FpDensityMorgan2,MinAbsEStateIndex,Chi2v,FpDensityMorgan1,SlogP_VSA12,SMR_VSA6,PEOE_VSA9,Chi3n,FractionCSP3,MinAbsEStateIndex,HomoLumoGap,HomoLumoGap,HomoLumoGap,fr_ketone_Topliss,BCUT2D_LOGPLOW,IP
+SMR_VSA6,HomoLumoGap,Chi2v,FpDensityMorgan2,BCUT2D_LOGPHI,Chi2v,fr_ketone,MaxPartialCharge,PEOE_VSA8,MinPartialCharge,Chi2v,VSA_EState8,MinAbsEStateIndex,VSA_EState8,MinAbsEStateIndex,VSA_EState5,IP,Chi1n
+MinAbsEStateIndex,Chi0v,MinPartialCharge,BCUT2D_LOGPHI,MinAbsPartialCharge,BCUT2D_CHGLO,EState_VSA5,MaxEStateIndex,FpDensityMorgan1,SlogP_VSA2,FpDensityMorgan2,fr_alkyl_halide,FpDensityMorgan3,fr_ketone_Topliss,SlogP_VSA5,EState_VSA6,AvgIpc,BCUT2D_CHGLO
+AvgIpc,FpDensityMorgan2,qed,Chi2v,MinPartialCharge,SPS,VSA_EState3,Kappa2,EState_VSA1,MinAbsPartialCharge,HomoLumoGap,BCUT2D_LOGPHI,PEOE_VSA12,fr_ketone,PEOE_VSA11,EState_VSA4,MaxPartialCharge,Chi1v
+SPS,FpDensityMorgan3,MinAbsPartialCharge,HomoLumoGap,BCUT2D_MWHI,SMR_VSA5,HomoLumoGap,VSA_EState3,AvgIpc,Chi4n,AvgIpc,fr_methoxy,FpDensityMorgan2,AvgIpc,fr_ester,PEOE_VSA2,BCUT2D_MWHI,BCUT2D_MRHI
+FpDensityMorgan2,BCUT2D_CHGHI,SlogP_VSA6,Chi0v,SPS,VSA_EState8,BCUT2D_LOGPHI,AvgIpc,Chi1v,Chi4v,SlogP_VSA6,SPS,FpDensityMorgan1,EState_VSA6,PEOE_VSA10,SlogP_VSA5,fr_halogen,BertzCT

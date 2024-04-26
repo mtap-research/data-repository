@@ -1,0 +1,28 @@
+SimulationType                        MonteCarlo       
+NumberOfCycles                        20000            
+NumberOfInitializationCycles          10000
+
+Forcefield                            XeKrFF
+CutOff                                12        
+
+Framework                             0                
+FrameworkName                         # Frame
+UnitCells                             # Unit
+ExternalTemperature                   298
+                                              
+ExternalPressure                      # pressure       
+
+ChargeMethod                          None 
+EwaldPrecision                        1e-5             
+UseChargesFromCIFFile                 no        
+                 
+RemoveAtomNumberCodeFromLabel yes
+Movies                        yes                                
+
+Component 0 MoleculeName xenon                   
+            MoleculeDefinition XeKr
+            TranslationProbability 1.0               
+            ReinsertionProbability 1.0                 
+            SwapProbability        1.0                 
+	    RotationProbability    1.0                 
+            CreateNumberOfMolecules 0                  

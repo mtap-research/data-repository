@@ -1,0 +1,41 @@
+SimulationType                        MonteCarlo
+NumberOfCycles                        20000
+NumberOfInitializationCycles          10000
+
+
+Forcefield                            XeKrFF
+CutOff                                12
+
+Framework                             0
+FrameworkName #structure
+UnitCells 	#unitcell
+ExternalTemperature                   298
+ExternalPressure                      #pressure
+
+ChargeMethod                          None
+UseChargesFromCIFFile                 no
+
+RemoveAtomNumberCodeFromLabel yes
+Movies                        yes
+
+Component 0 MoleculeName xenon
+            MoleculeDefinition XeKr
+            MolFraction       0.2
+            TranslationProbability 1.0
+            ReinsertionProbability 1.0
+            SwapProbability       1.0
+            IdentityChangeProbability 1.0
+             NumberOfIdentityChanges 2
+             IdentityChangesList     0 1
+            CreateNumberOfMolecules 0
+
+Component 1 MoleculeName krypton
+            MoleculeDefinition XeKr
+            MolFraction         0.8
+            TranslationProbability 1.0
+            ReinsertionProbability 1.0
+            SwapProbability       1.0
+            IdentityChangeProbability 1.0
+             NumberOfIdentityChanges 2
+             IdentityChangesList     0 1
+            CreateNumberOfMolecules 0                  

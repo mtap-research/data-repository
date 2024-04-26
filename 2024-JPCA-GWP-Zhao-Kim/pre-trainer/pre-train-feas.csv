@@ -1,0 +1,32 @@
+﻿Rank of top 10 features,,,GBR-LF,R2,,RF-LF,R2,,DT-LF,R2,,LASSO-LF,R2,,KR-LF,R2,,Ada-LF,R2,,SVR-LF,R2,,KNN-LF,R2,,MLP-LF,R2
+RDKit features,211,,Training,0.978880313,,Training,0.970171448,,Training,0.941903894,,Training,0.886139802,,Training,0.004107208,,Training,0.941933526,,Training,0.880799059,,Training,1,,Training,0.999950917
+DFT features,3,,Test,0.844038373,,Test,0.846923729,,Test,0.808887164,,Test,0.865322437,,Test,0.002533043,,Test,0.846687139,,Test,0.661643134,,Test,0.648730523,,Test,0.779987857
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+No-Normalization,"GBR,RF,DT",,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names
+Normalization,others,,0.202886,IP,,0.612667,IP,,0.63702,IP,,0.389801,IP,,0.020194,fr_allylic_oxid,,0.528456,IP,,0.04923,IP,,0.078228,FractionCSP3,,0.311616,HomoLumoGap
+,,,0.060368,SMR_VSA7,,0.083337,MinAbsEStateIndex,,0.140789,MinAbsEStateIndex,,0.176385,SMR_VSA7,,0.018415,FractionCSP3,,0.091545,MinAbsEStateIndex,,0.028554,FractionCSP3,,0.074607,SMR_VSA7,,0.279705,Chi2n
+,,,0.059464,fr_halogen,,0.051862,FpDensityMorgan3,,0.049593,FractionCSP3,,0.052191,MinAbsEStateIndex,,0.018259,SlogP_VSA6,,0.054087,FpDensityMorgan3,,0.027354,SMR_VSA7,,0.074607,SlogP_VSA6,,0.221149,MolMR
+,,,0.041718,Chi2v,,0.039168,FractionCSP3,,0.036904,FpDensityMorgan3,,0.030259,FpDensityMorgan3,,0.018259,SMR_VSA7,,0.052497,BCUT2D_MWHI,,0.027354,SlogP_VSA6,,0.06359,IP,,0.186401,Chi1n
+,,,0.039343,FractionCSP3,,0.018586,FpDensityMorgan2,,0.032445,Chi2v,,0.025458,SlogP_VSA12,,0.014041,PEOE_VSA9,,0.041434,FractionCSP3,,0.02475,HomoLumoGap,,0.031414,HomoLumoGap,,0.18269,BCUT2D_LOGPLOW
+,,,0.026309,SMR_VSA6,,0.013827,Chi2v,,0.020641,BCUT2D_LOGPHI,,0.022229,fr_ketone,,0.012825,PEOE_VSA8,,0.026245,Chi2v,,0.020026,MinAbsEStateIndex,,0.017359,MinAbsEStateIndex,,0.171335,IP
+,,,0.02362,MinAbsEStateIndex,,0.013495,MinPartialCharge,,0.018395,MinAbsPartialCharge,,0.020039,EState_VSA5,,0.011489,FpDensityMorgan1,,0.024317,FpDensityMorgan2,,0.017273,FpDensityMorgan3,,0.014935,SlogP_VSA5,,0.150925,AvgIpc
+,,,0.023473,AvgIpc,,0.011175,qed,,0.017638,MinPartialCharge,,0.014347,VSA_EState3,,0.011077,EState_VSA1,,0.012619,HomoLumoGap,,0.015675,PEOE_VSA12,,0.013433,PEOE_VSA11,,0.123398,MaxPartialCharge
+,,,0.022927,SPS,,0.009829,MinAbsPartialCharge,,0.012853,BCUT2D_MWHI,,0.008404,HomoLumoGap,,0.010585,AvgIpc,,0.012048,AvgIpc,,0.015468,FpDensityMorgan2,,0.010402,fr_ester,,0.122977,BCUT2D_MWHI
+,,,0.022344,FpDensityMorgan2,,0.008254,SlogP_VSA6,,0.007021,SPS,,0.005153,BCUT2D_LOGPHI,,0.01037,Chi1v,,0.011769,SlogP_VSA6,,0.011447,FpDensityMorgan1,,0.010203,PEOE_VSA10,,0.112933,fr_halogen
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,GBR-GWP,R2,,RF-GWP,R2,,DT-GWP,R2,,LASSO-GWP,R2,,KR-GWP,R2,,Ada-GWP,R2,,SVR-GWP,R2,,KNN-GWP,R2,,MLP-GWP,R2
+,,,Training,0.989271806,,Training,0.9591369,,Training,0.869605249,,Training,0.91830814,,Training,0.004580992,,Training,0.947875267,,Training,0.876908342,,Training,1,,Training,0.999854917
+,,,Test,0.878899708,,Test,0.833562395,,Test,0.660608017,,Test,0.881717372,,Test,0.004691534,,Test,0.82775011,,Test,0.643120904,,Test,0.68478777,,Test,0.802440213
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names,,feature_importance,feature_names
+,,,0.321563,FractionCSP3,,0.706166,IP,,0.72815,IP,,0.349274,SMR_VSA7,,0.008339,fr_methoxy,,0.581173,IP,,0.039789,IP,,0.124556,fr_ester,,0.424379,HomoLumoGap
+,,,0.108638,fr_halogen,,0.038804,qed,,0.058678,FractionCSP3,,0.264249,IP,,0.007981,EState_VSA2,,0.050857,qed,,0.032406,FractionCSP3,,0.022267,EState_VSA5,,0.343499,BCUT2D_LOGPLOW
+,,,0.098312,IP,,0.021955,FractionCSP3,,0.049313,BCUT2D_LOGPHI,,0.052517,fr_ketone,,0.007158,PEOE_VSA1,,0.027749,FractionCSP3,,0.032383,SMR_VSA7,,0.016865,PEOE_VSA11,,0.260756,MolMR
+,,,0.036194,SMR_VSA7,,0.017938,SMR_VSA7,,0.030708,qed,,0.019163,SlogP_VSA5,,0.006693,SMR_VSA6,,0.024601,Chi2v,,0.032383,SlogP_VSA6,,0.015835,fr_ketone,,0.225845,fr_halogen
+,,,0.021936,ExactMolWt,,0.016881,MinAbsEStateIndex,,0.023063,FpDensityMorgan1,,0.018464,SMR_VSA6,,0.006192,Chi3n,,0.022634,MinAbsEStateIndex,,0.014306,HomoLumoGap,,1.58E-02,fr_ketone_Topliss,,0.147919,IP
+,,,0.018672,HomoLumoGap,,0.014973,FpDensityMorgan2,,0.014566,Chi2v,,0.015921,MaxPartialCharge,,0.006148,MinPartialCharge,,0.021308,VSA_EState8,,0.01305,VSA_EState8,,0.014239,VSA_EState5,,0.137899,Chi1n
+,,,0.017526,Chi0v,,0.013209,BCUT2D_LOGPHI,,0.013321,BCUT2D_CHGLO,,0.009943,MaxEStateIndex,,0.006115,SlogP_VSA2,,0.019581,fr_alkyl_halide,,0.012614,fr_ketone_Topliss,,0.012162,EState_VSA6,,0.130302,BCUT2D_CHGLO
+,,,0.014042,FpDensityMorgan2,,0.010556,Chi2v,,0.013091,SPS,,0.009398,Kappa2,,0.006041,MinAbsPartialCharge,,0.013307,BCUT2D_LOGPHI,,0.012614,fr_ketone,,0.006776,EState_VSA4,,0.129704,Chi1v
+,,,0.012191,FpDensityMorgan3,,0.009338,HomoLumoGap,,0.008172,SMR_VSA5,,0.008773,VSA_EState3,,0.005846,Chi4n,,0.013111,fr_methoxy,,0.011904,AvgIpc,,0.006113,PEOE_VSA2,,0.09966,BCUT2D_MRHI
+,,,0.011978,BCUT2D_CHGHI,,0.009055,Chi0v,,0.007786,VSA_EState8,,0.008757,AvgIpc,,0.005821,Chi4v ,,0.012666,SPS.1,,0.011156,EState_VSA6,,0.005261,SlogP_VSA5,,0.094722,BertzCT

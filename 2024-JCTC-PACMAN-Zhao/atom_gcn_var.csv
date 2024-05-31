@@ -1,0 +1,79 @@
+element,var_e,count,group,family
+Ag,0.011646125,5045,Transition Metal,11
+Al,0.051710602,160,Metal,13
+As,0.187232549,84,Metalloid,15
+Au,0.009514321,301,Transition Metal,11
+B,0.211311524,583,Metalloid,13
+Ba,0.006031554,452,Alkali Earth Metal,2
+Be,0.000794803,6,Alkali Earth Metal,2
+Bi,0.093555444,188,Metal,15
+Br,0.043746404,3359,Halogen,17
+C,0.06572781,719203,Nonmetal,14
+Ca,0.003422479,679,Alkali Earth Metal,2
+Cd,0.017349048,8794,Transition Metal,12
+Ce,0.036626854,45,Lanthanide,3
+Cl,0.103269685,8993,Halogen,17
+Co,0.038371229,3386,Transition Metal,9
+Cr,0.267613034,107,Transition Metal,6
+Cs,0.001723884,316,Alkali Metal,1
+Cu,0.079017463,11289,Transition Metal,11
+Dy,0.008090534,670,Lanthanide,3
+Er,0.00886558,471,Lanthanide,3
+Eu,0.085914087,132,Lanthanide,3
+F,0.015662418,7903,Halogen,17
+Fe,0.126405301,790,Transition Metal,8
+Ga,0.119104244,159,Metal,13
+Gd,0.009062052,857,Lanthanide,3
+Ge,0.017575156,30,Metalloid,14
+H,0.008266598,640350,Nonmetal,1
+Hg,0.012901928,1313,Transition Metal,12
+Ho,0.013160453,341,Lanthanide,3
+I,0.033962469,3976,Halogen,17
+In,0.050930389,276,Metal,13
+Ir,0.188735805,14,Transition Metal,9
+K,0.001353883,1274,Alkali Metal,1
+La,0.011554192,556,Lanthanide,3
+Li,0.002051499,1108,Alkali Metal,1
+Lu,0.023290284,87,Lanthanide,3
+Mg,0.007200449,607,Alkali Earth Metal,2
+Mn,0.030448722,2327,Transition Metal,7
+Mo,0.141703979,804,Transition Metal,6
+N,0.051809501,155438,Nonmetal,15
+Na,0.001508164,1273,Alkali Metal,1
+Nb,0.252398321,18,Transition Metal,5
+Nd,0.008194652,699,Lanthanide,3
+Ni,0.041262016,1950,Transition Metal,10
+Np,0.004211433,5,Actinide,3
+O,0.018831236,249162,Nonmetal,16
+P,0.126609576,3392,Nonmetal,15
+Pb,0.020913793,797,Metal,14
+Pd,0.015608018,120,Transition Metal,10
+Pr,0.01209099,504,Lanthanide,3
+Pt,0.00974993,118,Transition Metal,10
+Pu,0.010045015,11,Actinide,3
+Rb,0.001286272,291,Alkali Metal,1
+Re,0.487502998,36,Transition Metal,7
+Rh,0.034655733,114,Transition Metal,9
+Ru,0.036861069,124,Transition Metal,8
+S,0.383241493,13583,Nonmetal,16
+Sb,0.12124121,82,Metalloid,15
+Sc,0.005501533,103,Transition Metal,3
+Se,0.370707523,300,Nonmetal,16
+Si,0.140076108,215,Metalloid,14
+Sm,0.014006,641,Lanthanide,3
+Sn,0.093145867,575,Metal,14
+Sr,0.003362744,423,Alkali Earth Metal,2
+Tb,0.007742501,918,Lanthanide,3
+Tc,4.33E-06,2,Transition Metal,7
+Te,0.297588292,88,Metalloid,16
+Th,0.014070149,29,Actinide,3
+Ti,0.020183599,98,Transition Metal,4
+Tl,0.022412612,274,Metal,13
+Tm,0.011540437,131,Lanthanide,3
+U,0.007774008,491,Actinide,3
+V,0.025227699,559,Transition Metal,5
+W,0.673693308,142,Transition Metal,6
+Y,0.008402399,221,Transition Metal,3
+Yb,0.014136986,194,Lanthanide,3
+Zn,0.015800928,12588,Transition Metal,12
+Zr,0.156039744,49,Transition Metal,4

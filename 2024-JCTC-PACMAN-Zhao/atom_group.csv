@@ -1,0 +1,79 @@
+element,group,family
+Ag,Transition Metal,11
+Al,Metal,13
+As,Metalloid,15
+Au,Transition Metal,11
+B,Metalloid,13
+Ba,Alkali Earth Metal,2
+Be,Alkali Earth Metal,2
+Bi,Metal,15
+Br,Halogen,17
+C,Nonmetal,14
+Ca,Alkali Earth Metal,2
+Cd,Transition Metal,12
+Ce,Lanthanide,3
+Cl,Halogen,17
+Co,Transition Metal,9
+Cr,Transition Metal,6
+Cs,Alkali Metal,1
+Cu,Transition Metal,11
+Dy,Lanthanide,3
+Er,Lanthanide,3
+Eu,Lanthanide,3
+F,Halogen,17
+Fe,Transition Metal,8
+Ga,Metal,13
+Gd,Lanthanide,3
+Ge,Metalloid,14
+H,Nonmetal,1
+Hg,Transition Metal,12
+Ho,Lanthanide,3
+I,Halogen,17
+In,Metal,13
+Ir,Transition Metal,9
+K,Alkali Metal,1
+La,Lanthanide,3
+Li,Alkali Metal,1
+Lu,Lanthanide,3
+Mg,Alkali Earth Metal,2
+Mn,Transition Metal,7
+Mo,Transition Metal,6
+N,Nonmetal,15
+Na,Alkali Metal,1
+Nb,Transition Metal,5
+Nd,Lanthanide,3
+Ni,Transition Metal,10
+Np,Actinide,3
+O,Nonmetal,16
+P,Nonmetal,15
+Pb,Metal,14
+Pd,Transition Metal,10
+Pr,Lanthanide,3
+Pt,Transition Metal,10
+Pu,Actinide,3
+Rb,Alkali Metal,1
+Re,Transition Metal,7
+Rh,Transition Metal,9
+Ru,Transition Metal,8
+S,Nonmetal,16
+Sb,Metalloid,15
+Sc,Transition Metal,3
+Se,Nonmetal,16
+Si,Metalloid,14
+Sm,Lanthanide,3
+Sn,Metal,14
+Sr,Alkali Earth Metal,2
+Tb,Lanthanide,3
+Tc,Transition Metal,7
+Te,Metalloid,16
+Th,Actinide,3
+Ti,Transition Metal,4
+Tl,Metal,13
+Tm,Lanthanide,3
+U,Actinide,3
+V,Transition Metal,5
+W,Transition Metal,6
+Y,Transition Metal,3
+Yb,Lanthanide,3
+Zn,Transition Metal,12
+Zr,Transition Metal,4

@@ -1,0 +1,27 @@
+SimulationType                        MonteCarlo
+NumberOfCycles                        50000
+NumberOfInitializationCycles          10000
+PrintEvery                            5000
+
+
+Forcefield                            DFF_BOG_ysh
+CutOff                                12.8
+
+RemoveAtomNumberCodeFromLabel yes
+
+Framework                             0
+FrameworkName                         BAZGAM_clean
+UnitCells                             1 1 1 
+ExternalTemperature                   220
+ExternalPressure 3000
+
+Movies                                yes
+WriteMoviesEvery                      5000
+
+
+Component    0            MoleculeName             methane
+                          MoleculeDefinition       TraPPE
+                          TranslationProbability   1.0
+                          ReinsertionProbability   2.0
+                          SwapProbability          4.0
+                          CreateNumberOfMolecules  0

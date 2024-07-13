@@ -1,0 +1,31 @@
+SimulationType MonteCarlo
+NumberOfCycles 10000
+NumberOfInitializationCycles  6000
+PrintEvery 2000
+PrintPropertiesEvery 2000
+RestartFile  no
+
+Forcefield O-Mg-O_morse_newFF_single
+UseChargesFromCIFFile no
+RemoveAtomNumberCodeFromLabel yes
+ChargeMethod Ewald
+CutOffVDW 12.8
+
+ContinueAfterCrash  no
+WriteBinaryRestartFileEvery 10000
+
+Movies              no
+
+Framework 0
+FrameworkName # frame
+UnitCells 	# unit
+ExternalTemperature 	# T
+ExternalPressure # P
+
+Component 0 MoleculeName hydrogen
+                    MoleculeDefinition  O-Mg-O_H2
+                    TranslationProbability 1.0
+                    ReinsertionProbability 2.0
+		    RotationProbability 1.0
+                    SwapProbability 4.0
+		    FugacityCoefficient 1.0

@@ -1,0 +1,11 @@
+# rules to overwrite
+0
+# number of defined interactions
+3
+# type      type2       interaction
+H_h2	Mg_	morse	835.09000 	2.01400 	2.21400 
+H_h2	Sn_	morse	10.00000 	3.86200 	2.00000 
+H_h2	Te_	morse	10.02100 	1.01500 	4.98600 
+# mixing rules to overwrite
+0
+

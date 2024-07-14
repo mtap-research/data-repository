@@ -49,26 +49,7 @@ ORGANIZED simulation files/
 │   │   ├── model
 │   │   │   ├── CGCNN_data.py
 │   │   │   ├── CGCNN_model.py
-│   │   │   ├── CGCNN_run.py
-│   │   │   └── __pycache__
-│   │   │       ├── CGCNN_data.cpython-311.pyc
-│   │   │       ├── CGCNN_data.cpython-312.pyc
-│   │   │       ├── CGCNN_data.cpython-38.pyc
-│   │   │       ├── CGCNN_data.cpython-39.pyc
-│   │   │       ├── CGCNN_data_pre.cpython-311.pyc
-│   │   │       ├── CGCNN_data_pre.cpython-38.pyc
-│   │   │       ├── CGCNN_data_pre.cpython-39.pyc
-│   │   │       ├── CGCNN_model.cpython-311.pyc
-│   │   │       ├── CGCNN_model.cpython-312.pyc
-│   │   │       ├── CGCNN_model.cpython-38.pyc
-│   │   │       ├── CGCNN_model.cpython-39.pyc
-│   │   │       ├── CGCNN_pre.cpython-311.pyc
-│   │   │       ├── CGCNN_pre.cpython-38.pyc
-│   │   │       ├── CGCNN_pre.cpython-39.pyc
-│   │   │       ├── CGCNN_run.cpython-311.pyc
-│   │   │       ├── CGCNN_run.cpython-312.pyc
-│   │   │       ├── CGCNN_run.cpython-39.pyc
-│   │   │       └── CGCNN_runMut.cpython-39.pyc
+│   │   │   └── CGCNN_run.py
 │   │   ├── result
 │   │   │   ├── gL
 │   │   │   │   ├── checkpoints
@@ -98,9 +79,6 @@ ORGANIZED simulation files/
 │   │   ├── uptake_g.csv
 │   │   └── uptake_w.csv
 │   └── tree-based
-│       ├── __pycache__
-│       │   ├── data.cpython-312.pyc
-│       │   └── model.cpython-312.pyc
 │       ├── data.py
 │       ├── dataset_gL.csv
 │       ├── dataset_wt.csv

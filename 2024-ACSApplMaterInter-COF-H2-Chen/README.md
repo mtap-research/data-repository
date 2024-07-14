@@ -12,7 +12,6 @@ This repository was created by Yu Chen.
 ```
 ORGANIZED simulation files/
 ├── 1. Functionalized COFs
-│   ├── README.md
 │   ├── README.txt
 │   ├── func_COF_label.zip
 │   └── func_COF_unlabel.zip

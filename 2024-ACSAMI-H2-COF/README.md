@@ -10,7 +10,7 @@ This repository was created by Yu Chen.
 
 ## Files Directory:
 ```
-ORGANIZED simulation files/
+.
 ├── 1. Functionalized COFs
 │   ├── README.txt
 │   ├── func_COF_label.zip
@@ -44,8 +44,28 @@ ORGANIZED simulation files/
 │   ├── CGCNN
 │   │   ├── COF_list.csv
 │   │   ├── README.md
+│   │   ├── data
+│   │   │   └── cif
+│   │   │       ├── 21320N2.cif
+│   │   │       ├── 21320N2_1.0_0.5.cif
+│   │   │       ├── 21320N2_1.0_1.0.cif
+│   │   │       ├── 21320N2_2.0_0.5.cif
+│   │   │       ├── 21320N2_2.0_1.0.cif
+│   │   │       ├── atom_init.json
+│   │   │       ├── npy_gL
+│   │   │       │   ├── 05001N2.npy
+│   │   │       │   ├── ...
+│   │   │       │   └── 21320N2.npy
+│   │   │       ├── npy_wt
+│   │   │       │   ├── 05001N2.npy
+│   │   │       │   ├── ...
+│   │   │       │   └── 21320N2.npy
+│   │   │       ├── pkl
+│   │   │       │   ├── 05001N2.pkl
+│   │   │       │   ├── ...
+│   │   │       │   └── 21320N2.pkl
+│   │   │       └── pld.txt
 │   │   ├── data.py
-│   │   ├── example.ipynb
 │   │   ├── model
 │   │   │   ├── CGCNN_data.py
 │   │   │   ├── CGCNN_model.py
@@ -60,12 +80,6 @@ ORGANIZED simulation files/
 │   │   │   │   ├── test.txt
 │   │   │   │   ├── train.txt
 │   │   │   │   └── val.txt
-│   │   │   ├── result_DC_gL.csv
-│   │   │   ├── result_DC_gL_test.csv
-│   │   │   ├── result_DC_wt.csv
-│   │   │   ├── result_DC_wt_test.csv
-│   │   │   ├── result_all_gL.csv
-│   │   │   ├── result_all_wt.csv
 │   │   │   └── wt
 │   │   │       ├── checkpoints
 │   │   │       │   └── model.pth
@@ -90,26 +104,19 @@ ORGANIZED simulation files/
 │       │   └── dt_wt.xlsx
 │       ├── gbr_gL
 │       │   ├── gbr_gL.pkl
-│       │   ├── gbr_gL.xlsx
-│       │   ├── gbr_gL_DC.csv
-│       │   └── gbr_gL_DC_test.csv
+│       │   └── gbr_gL.xlsx
 │       ├── gbr_wt
 │       │   ├── gbr_wt.pkl
-│       │   ├── gbr_wt.xlsx
-│       │   ├── gbr_wt_DC.csv
-│       │   ├── gbr_wt_DC_test.csv
-│       │   ├── gbr_wt_shap.json
-│       │   └── gbr_wt_shap.pkl
+│       │   └── gbr_wt.xlsx
 │       ├── model.py
+│       ├── pip_list
 │       ├── rf_gL
 │       │   └── rf_gL.xlsx
 │       ├── rf_wt
-│       │   ├── rf_wt.pkl
 │       │   └── rf_wt.xlsx
-│       └── run.py
-└── raw_datasheet_figures.xlsx
-
-26 directories, 94 files
+│       ├── run.py
+│       └── train.out
+└── tree.txt
 
 
 ```

@@ -45,7 +45,7 @@ This repository was created by Haewon Kim.
        │     └──system.in.settings
        └── NVT
              ├──data.after_wide_nvt_350_pomdol
-       │     ├──data.after_wide_nvt_pomdol
+             ├──data.after_wide_nvt_pomdol
              ├──nvt.run
              ├──system.in.constraints
              ├──system.in.init

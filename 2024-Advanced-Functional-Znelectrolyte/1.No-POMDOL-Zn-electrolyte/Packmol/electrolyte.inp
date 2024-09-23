@@ -1,0 +1,29 @@
+# A box of water+znlayer
+#
+
+# Minimum distance between pairs of atoms of different molecules will be at least 2.0 Angstroms
+tolerance 2.0
+
+# Input and Output files are in pdb format
+
+filetype pdb
+
+# Naming the output file
+output electrolyte.pdb
+
+# molecules will be inside a box that has X A length in each direction.
+
+structure spc_fw.pdb
+	number 18374
+	inside box 0 0 15 100 100 85
+end structure
+
+structure znion.pdb
+	number 755
+	inside box 0 0 15 100 100 85
+end structure
+
+structure sulfate.pdb
+	number 755
+	inside box 0 0 15 100 100 85
+end structure

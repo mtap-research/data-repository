@@ -1,0 +1,38 @@
+import "znlayer.lt"
+import "piston.lt"
+import "water_box_znso4.lt"
+
+
+# ------------ boundary conditions ------------
+
+write_once("Data Boundary") {
+  0 100 xlo xhi
+  0 100 ylo yhi
+  0 105.0000 zlo zhi
+}
+
+write_once("In Settings") {
+	pair_coeff	@atom:Zn100/Znm		@atom:SPCE/Ow		lj/cut	0.138814985	2.8125
+  pair_coeff	@atom:Zn100/Znm		@atom:SPCE/Hw		lj/cut	0	0
+  pair_coeff	@atom:Zn100/Znm		@atom:sulfate/Si		lj/cut	0.176032951	3.012
+  pair_coeff	@atom:Zn100/Znm		@atom:sulfate/Oi		lj/cut	0.161369142	2.9615
+  pair_coeff	@atom:Zn100/Znm		@atom:ZnIon/Zni		lj/cut	0.063482281	2.2535
+  pair_coeff	@atom:moleculeB/b	@atom:SPCE/Ow		lj/cut	0.088147603	3.5825
+  pair_coeff	@atom:moleculeB/b	@atom:SPCE/Hw		lj/cut	0	0
+  pair_coeff	@atom:moleculeB/b	@atom:sulfate/Si		lj/cut	0.111781036	3.782
+  pair_coeff	@atom:moleculeB/b	@atom:sulfate/Oi		lj/cut	0.054767691	3.7315
+  pair_coeff	@atom:moleculeB/b	@atom:ZnIon/Zni		lj/cut	0.040311289	3.0235
+	group electrolyte type @atom:sulfate/Si @atom:sulfate/Oi @atom:ZnIon/Zni
+	group zn2ion type @atom:ZnIon/Zni
+	group so4ion type @atom:sulfate/Si @atom:sulfate/Oi
+}
+
+write_once("In Init") {
+    units        real
+    atom_style   full
+    pair_style   hybrid/overlay lj/cut/coul/long 12.0 12.0 lj/cut 12.0
+    pair_modify  tail yes mix arithmetic
+    bond_style   harmonic
+    angle_style  harmonic
+    kspace_style pppm 0.00001
+}

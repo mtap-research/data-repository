@@ -1,0 +1,7 @@
+import "piston-ms.lt"
+
+piston_layer = new moleculeB [32].move(3.1431, 0, 0)
+                             [34].move(0, 2.9680, 0)
+                             [3].move(0, 0, 3)                             
+
+piston_layer[*][*][*].move(0,0,88.0)

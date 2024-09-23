@@ -1,0 +1,14 @@
+moleculeB {
+  write("Data Atoms") {
+    $atom:b $mol:. @atom:b  0.0  0.0 0.0 0.0
+  }
+  write_once("Data Masses") {
+    @atom:b 10.0
+  }
+  write_once("In Settings") {
+    #            i     j     epsilon sigma cutoff
+    pair_coeff @atom:b @atom:b  lj/cut 0.05  4.0   
+    group piston type @atom:b  
+  }
+
+}

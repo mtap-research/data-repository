@@ -1,0 +1,21 @@
+# Zn Ion
+# 
+# They both contain only one atom.
+
+ZnIon {
+
+  # AtomID  MolID  AtomType  charge   X       Y         Z
+  write("Data Atoms") {
+    $atom:Zn $mol @atom:Zni    1.6    0.00000  0.00000   0.000000
+  }
+
+  write_once("Data Masses") {
+    @atom:Zni 65.380
+  }
+
+  # The "In Settings" section stores force-field parameters for this moleculeZnIo
+  write_once("In Settings") {
+    pair_coeff @atom:Zni @atom:Zni  lj/cut/coul/long  0.0325 2.047
+  }
+
+} # ZnIon

@@ -1,0 +1,21 @@
+import "spc_fw.lt"
+import "znion.lt"
+import "sulfate.lt"
+import "pomdol.lt"
+
+wat  =  new SPCE[18374]
+
+zn = new ZnIon[755]
+
+sulf = new sulfate[755]
+
+poomdool = new pomdol[16]
+
+
+# periodic boundary conditions:
+write_once("Data Boundary") {
+   0 100 xlo xhi
+   0 100 ylo yhi
+   0 105 zlo zhi
+}
+

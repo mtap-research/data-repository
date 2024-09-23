@@ -1,0 +1,42 @@
+#####################################################################
+# NOTE: This is a hexagonal unit cell.  The crystals you make from it
+# will be hexagonal.  Some users prefer to work with rectangular crystals.
+# There is a rectangular version of the graphene unit cell containing 4 atoms:
+# https://github.com/jewettaij/moltemplate/blob/master/moltemplate/force_fields/graphene_rectangular.lt
+# If you prefer to work with rectangular graphene, download that file and use
+# import "graphene_rectangular.lt" in place of this file.  (The unit cell
+# size and geometry is included in comments at the bottom of that file.)
+#####################################################################
+
+# The minimal unit cell for graphine contains only 2 atoms:
+# (which I arbitrarily named "c1" and "c2")
+
+Zn100 {
+
+  # atomID   molID     atomType charge      x              y         z
+  write("Data Atoms") {
+    $atom:Zn1  $mol:...  @atom:Znm   0.0   0.444 1.237 1.539
+    $atom:Zn2  $mol:...  @atom:Znm   0.0   1.777 1.237 3.846
+    $atom:Zn3  $mol:...  @atom:Znm   0.0   0.444 1.237 6.158
+    $atom:Zn4  $mol:...  @atom:Znm   0.0   1.777 1.237 8.462
+    $atom:Zn5  $mol:...  @atom:Znm   0.0   0.444 1.237 10.770
+    $atom:Zn6  $mol:...  @atom:Znm   0.0   1.777 1.237 13.078
+    $atom:Zn7  $mol:...  @atom:Znm   0.0   0.444 3.710 0.000
+    $atom:Zn8  $mol:...  @atom:Znm   0.0   1.777 3.710 2.308
+    $atom:Zn9  $mol:...  @atom:Znm   0.0   0.444 3.710 4.616
+    $atom:Zn10  $mol:...  @atom:Znm   0.0   1.777 3.710 6.924
+    $atom:Zn11  $mol:...  @atom:Znm   0.0   0.444 3.710 9.231
+    $atom:Zn12  $mol:...  @atom:Znm   0.0   1.777 3.710 11.539
+    $atom:Zn13  $mol:...  @atom:Znm   0.0   0.444 3.710 13.847
+  }
+
+  # Now define the "C" atom type
+  write_once("Data Masses") {
+    @atom:Znm  65.380
+  }
+  write_once("In Settings") {
+    #              i       j                             epsilon     sigma
+    pair_coeff  @atom:Znm @atom:Znm  lj/cut       0.124     2.46
+    group znlayer type @atom:Znm
+  }
+} # Zn hexagonal from materials studio

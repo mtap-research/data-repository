@@ -1,0 +1,9 @@
+import "zn-ms.lt"
+
+surface {
+  unitcells = new Zn100 [37].move(2.6649, 0, 0)
+                        [20].move(0, 4.9468,  0)
+}
+
+surface1 = new surface.move(0,0,0)
+

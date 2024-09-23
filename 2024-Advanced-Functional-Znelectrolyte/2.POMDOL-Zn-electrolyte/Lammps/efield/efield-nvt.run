@@ -1,0 +1,52 @@
+# ------------------------------- Initialization Section --------------------
+
+include      "system.in.init"        # specify the style of force field used
+read_data "data.after_wide_nvt_350_pomdol"
+#read_data      "system.data"           # specify atom coordinates and topology
+include      "system.in.settings"    # load the force field parameters
+
+# ------------------------------- Run Section -------------------------------
+group spce type 3 4
+group movableatoms union electrolyte spce dol
+region forrdf block 20.0 80.0 20.0 80.0 14.0 45.0
+group forrdf2 region forrdf
+group fixx union znlayer pom
+
+neighbor 4.0 bin
+neigh_modify every 1 delay 0 check yes
+
+timestep 0.5
+
+# --- setup ---
+compute myTemp movableatoms temp
+thermo_style one
+thermo_modify flush yes temp myTemp
+thermo_style custom step temp pe ke etotal press
+
+# --- minimization protocol --
+
+#---------------------------CHUNK----------------------------
+reset_timestep 0
+
+compute cc2 zn2ion chunk/atom bin/1d z lower 1.0
+fix myac2 zn2ion ave/chunk 1000 900 1000000 cc2 density/number vx vy vz file zniondensity.profile
+compute myRDF forrdf2 rdf 500 5 5
+# ---- NVT setting ----
+velocity movableatoms create 300 5123125 dist gaussian
+thermo       100
+thermo_style custom step temp pe ke etotal press
+include "system.in.constraints"
+fix	         rerunn forrdf2 ave/time 1000 1000 5000000 c_myRDF[*] file tmp.rdf mode vector
+fix          freeze_all fixx setforce 0.0 0.0 NULL
+fix          pistonthrust piston aveforce NULL NULL -0.3
+fix          kick movableatoms efield 0.0 0.0 -0.3
+fix          NVTdynamics movableatoms nvt temp 350 350 $(100.0*dt)
+fix          nvepiston piston nve
+
+# ---- Equilibrium Molecular Dynamics (EMD) ----
+dump emd all custom 1000 efield-pomdol.lammpstrj id mol type element q x y z
+dump_modify  emd element Znm b Ow Hw Zni Si Oi Mo Opom Odol Cdol Hdol Hpom P sort id
+
+run            10000000
+
+write_data data.after_efield_pomdol_2

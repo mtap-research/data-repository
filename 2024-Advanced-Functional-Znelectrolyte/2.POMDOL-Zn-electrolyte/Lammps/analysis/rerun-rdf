@@ -1,0 +1,56 @@
+# ------------------------------- Initialization Section --------------------
+
+include      "system.in.init"        # specify the style of force field used
+#read_data "data.after_no_pomdol_nvt"
+read_data    "data.after_efield_pomdol_2"           # specify atom coordinates and topology
+include      "system.in.settings"    # load the force field parameters
+
+# ------------------------------- Run Section -------------------------------
+group spce type 3 4
+group movableatoms union electrolyte spce dol
+region forrdf block 20.0 80.0 20.0 80.0 12.0 45.0
+group forrdf2 region forrdf
+group dens union electrolyte spce
+group fixx union znlayer pom
+
+neighbor 4.0 bin
+neigh_modify every 1 delay 0 check yes
+
+timestep 0.5
+
+# --- setup ---
+compute myTemp movableatoms temp
+thermo_style one
+thermo_modify flush yes temp myTemp
+thermo_style custom step temp pe ke etotal press
+
+#---------------------------CHUNK----------------------------
+reset_timestep 0
+
+#compute cc2 zn2ion chunk/atom bin/1d z lower 1.0
+#fix myac2 zn2ion ave/chunk 1000 90 100000 cc2 density/number file znion_number_density.profile
+#compute myRDF forrdf2 rdf 1000 5 5 5 3 5 7 1 5 
+compute cc3 zn2ion chunk/atom type 
+compute myMSD forrdf2 msd/chunk cc3
+
+# ---- NVT setting ----
+
+velocity movableatoms create 270 5123125 dist gaussian
+thermo       100
+thermo_style custom step temp pe ke etotal press density
+include      "system.in.constraints"
+fix        rerunmsd forrdf2 ave/time 1 1 5000 c_myMSD[*] file tmp_zn_pomdol_msd.rdf mode vector
+#fix	     rerunn forrdf2 ave/time 1000 500 500000 c_myRDF[*] file tmp_all_pomdol.rdf mode vector
+fix          freeze_all znlayer setforce 0.0 0.0 NULL
+fix          pistonthrust piston aveforce NULL NULL -0.3
+fix	     kick movableatoms efield 0.0 0.0 -0.3
+fix          NVTdynamics movableatoms nvt temp 270 270 100
+fix          nvepiston piston nve
+
+
+# ---- Equilibrium Molecular Dynamics (EMD) ----
+dump emd all custom 1000 rerun_new_cal_msd_pomdol.lammpstrj id mol type element q x y z
+dump_modify    emd element Znm b Ow Hw Zni Si Oi Mo Opom Odol Cdol Hdol Hpom P sort id
+
+rerun 		efield-pomdol.lammpstrj dump x y z 
+

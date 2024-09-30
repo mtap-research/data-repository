@@ -1,0 +1,2 @@
+group spce type 3 4
+fix fRattleSPCE spce shake 0.0001 10 0 b 1 a 1

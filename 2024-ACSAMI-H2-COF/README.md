@@ -54,8 +54,6 @@ This repository was created by Yu Chen.
 │   ├── MP2_E_bind.xlsx
 │   └── README.md
 ├── 4. H2 - GCMC
-│   ├── example output files
-│   │   └── output_21320N2_ddec_single_all_1.1.4_111.000000_1e+07.data
 │   └── input files
 │       ├── H2.def
 │       ├── forcefield

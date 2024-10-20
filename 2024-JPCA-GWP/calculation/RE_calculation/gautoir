@@ -1,0 +1,26 @@
+#!/bin/csh
+#
+# Shell script to extract Frequencies and intesities from a G92 output 
+# and print it in a format suitable for irspec.x
+#
+# (c) Aug 1994 by  Stephan Matzinger
+#                  Inst. of physical Chemistry, Univ. Fribourg (CH)
+#
+#nawk -f /usr/people/pch/bin/gauviblist.awk $1.log > $1.ir
+
+if ("$#argv" == 0) then
+ echo 'The command gautoir extracts frequencies and ir-intensities'
+ echo 'from Gaussian output and creates a IR-spectra.'
+ echo 'Usage: "gautoir file", reads file.log, writes "file.ir" '
+ echo 'containig frequencies and intensites, and '
+ echo '"file.prn", containig the spectra'
+
+else
+
+
+setenv LANG en
+awk -f ./gauviblist.awk $1.log > $1.ir
+       ./irspec_scale.f $1
+
+
+endif

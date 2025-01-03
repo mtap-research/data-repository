@@ -20,7 +20,7 @@ else
 
 setenv LANG en
 awk -f ./gauviblist.awk $1.log > $1.ir
-       ./irspec_scale.f $1
+       ./irspec.x $1
 
 
 endif

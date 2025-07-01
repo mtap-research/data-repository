@@ -1,0 +1,33 @@
+{
+  "SimulationType" : "MonteCarlo",
+  "NumberOfCycles" : 20000,
+  "NumberOfInitializationCycles" : 10000,
+  "PrintEvery" : 1000,
+
+  "ForceField" : ".",
+  
+  "Systems" : [
+    {
+      "Type" : "Framework",
+      "Name" : "struc",
+      "OutputPDBMovie" : true,
+      "SampleMovieEvery" : 1000,
+      "NumberOfUnitCells" : [1, 1, 1],
+      "ExternalTemperature" : 77.0,
+      "ExternalPressure" : 1.0e5,
+      "ChargeMethod" : "Ewald"
+    }
+  ],
+
+  "Components" : [ 
+    {
+      "Name" : "N2",
+      "MoleculeDefinition" : ".",
+      "FugacityCoefficient" : 1.0,
+      "TranslationProbability" : 1.0,
+      "ReinsertionProbability" : 1.0,
+      "SwapProbability" : 1.0,
+      "CreateNuMberofmolecules" : 0
+    }
+  ]
+}

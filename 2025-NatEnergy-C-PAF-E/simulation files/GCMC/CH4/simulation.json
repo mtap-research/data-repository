@@ -1,0 +1,32 @@
+{
+  "SimulationType" : "MonteCarlo",
+  "NumberOfCycles" : 20000,
+  "NumberOfInitializationCycles" : 10000,
+  "PrintEvery" : 1000,
+
+  "ForceField" : ".",
+  
+  "Systems" : [
+    {
+      "Type" : "Framework",
+      "Name" : "struc",
+      "NumberOfUnitCells" : [2, 2, 2],
+      "ExternalTemperature" : 77.0,
+      "ExternalPressure" : 1.0e5,
+      "ChargeMethod" : "Ewald",
+      "UseChargesFrom" : "CIF_file"
+    }
+  ],
+
+  "Components" : [ 
+    {
+      "Name" : "methane",
+      "MoleculeDefinition" : ".",
+      "FugacityCoefficient" : 1.0,
+      "TranslationProbability" : 1.0,
+      "ReinsertionProbability" : 1.0,
+      "SwapProbability" : 1.0,
+      "CreateNuMberofmolecules" : 0
+    }
+  ]
+}

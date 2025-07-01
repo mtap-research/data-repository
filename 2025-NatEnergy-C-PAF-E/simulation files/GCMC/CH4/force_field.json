@@ -1,0 +1,32 @@
+{
+  "PseudoAtoms" :
+  [
+    {"name" : "C",     "print_to_output" : true,  "element" : "C",  "print_as" : "C",  "mass" : 12.010735897,  "charge" :  0.0},
+    {"name" : "H",     "print_to_output" : true,  "element" : "H",  "print_as" : "H",  "mass" : 1.007940754,   "charge" :  0.0},
+    {"name" : "CH4",   "print_to_output" : true,  "element" : "C",  "print_as" : "C",  "mass" : 16.04246,      "charge" :  0.0}
+  ],
+  "SelfInteractions" : 
+  [
+    {
+      "name" : "C",
+      "type" : "lennard-jones",    
+      "parameters" : [47.8562, 3.47299],
+      "source" : "DREIDING"
+    },
+    {
+      "name" : "H",
+      "type" : "lennard-jones",    
+      "parameters" : [7.64893, 2.84642],
+      "source" : "DREIDING"
+    },
+    {
+      "name" : "CH4",
+      "type" : "lennard-jones",
+      "parameters" : [158.5, 3.72],
+      "source" : "M. G. Martin et al., J. Chem. Phys. 2001, 114, 7174-7181."
+    }
+  ],
+  "MixingRule" : "Lorentz-Berthelot",
+  "TruncationMethod" : "truncated",
+  "TailCorrections" : true
+}

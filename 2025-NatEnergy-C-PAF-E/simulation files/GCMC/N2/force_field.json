@@ -1,0 +1,41 @@
+{
+  "PseudoAtoms" :
+  [
+    {"name" : "C",     "print_to_output" : true,  "element" : "C",  "print_as" : "C",  "mass" : 12.010735897,  "charge" :  0.0},
+    {"name" : "H",     "print_to_output" : true,  "element" : "H",  "print_as" : "H",  "mass" : 1.007940754,   "charge" :  0.0},
+    {"name" : "N_n2",  "print_to_output" : true,  "element" : "N",  "print_as" : "N",  "mass" : 14.00674, "charge" : -0.405,
+              "source" : "A. Martin-Calvo et al. , Phys. Chem. Chem. Phys. 2011, 13, 11165-11174"},
+    {"name" : "N_com", "print_to_output" : false, "element" : "N",  "print_as" : "-",  "mass" : 0.0,      "charge" :  0.810,
+              "source" : "A. Martin-Calvo et al. , Phys. Chem. Chem. Phys. 2011, 13, 11165-11174"}
+  ],
+  "SelfInteractions" : 
+  [
+    {
+      "name" : "C",
+      "type" : "lennard-jones",    
+      "parameters" : [47.8562, 3.47299],
+      "source" : "DREIDING"
+    },
+    {
+      "name" : "H",
+      "type" : "lennard-jones",    
+      "parameters" : [7.64893, 2.84642],
+      "source" : "DREIDING"
+    },
+    {
+      "name" : "N_n2",
+      "type" : "lennard-jones",    
+      "parameters" : [38.298, 3.306],
+      "source" : "A. Martin-Calvo et al. , Phys. Chem. Chem. Phys. 2011, 13, 11165-11174"
+    },
+    {
+      "name" : "N_com",
+      "type" : "none",    
+      "parameters" : [0.0, 1.0],
+      "source" : "A. Martin-Calvo et al. , Phys. Chem. Chem. Phys. 2011, 13, 11165-11174"
+    }
+  ],
+  "MixingRule" : "Lorentz-Berthelot",
+  "TruncationMethod" : "truncated",
+  "TailCorrections" : true
+}

@@ -1,5 +1,3 @@
-NTE PAF models, raw data, exampled input and output files.
-
 .
 ├── NTE PAF models
 │   ├── NPT-relaxed
@@ -94,6 +92,7 @@ NTE PAF models, raw data, exampled input and output files.
 │       ├── wmy_0_op.cif
 │       ├── znz_0_cp.cif
 │       └── znz_0_op.cif
+├── README.txt
 ├── organized data for figures
 │   ├── GCMC isotherms of PAF models
 │   │   ├── CH4 at 273 and 298 K.xlsx
@@ -144,16 +143,44 @@ NTE PAF models, raw data, exampled input and output files.
 │   ├── PSD_2DNLDFT_organized.xlsx
 │   └── free_energy_profile_2_models.xlsx
 └── simulation files
-    ├── NPT relaxation
-    │   ├── npt_relax.in
-    │   └── obtain_npt_relaxed.py
-    ├── NPT relaxation with N2
-    │   ├── N2.data
-    │   ├── obtain_min.py
-    │   └── self_npt.in
-    └── deform and sampling
-        ├── deform_1.in
-        ├── deform_2.in
-        └── self_nvt.in
+    ├── GCMC
+    │   ├── CH4
+    │   │   ├── force_field.json
+    │   │   ├── methane.json
+    │   │   └── simulation.json
+    │   └── N2
+    │       ├── N2.json
+    │       ├── force_field.json
+    │       └── simulation.json
+    └── MD
+        ├── NPT relaxation
+        │   ├── npt_output
+        │   │   ├── sta_4_output.txt
+        │   │   └── vca_1_output.txt
+        │   ├── npt_relax.in
+        │   └── obtain_npt_relaxed.py
+        ├── NPT relaxation with N2
+        │   ├── N2.data
+        │   ├── npt_output
+        │   │   ├── sta_4_opt_0_opt.cif
+        │   │   ├── sta_4_opt_1230_opt.cif
+        │   │   ├── vca_1_opt_0_opt.cif
+        │   │   └── vca_1_opt_330_opt.cif
+        │   ├── obtain_min.py
+        │   ├── self_npt.in
+        │   └── self_output
+        │       ├── sta_4_opt_0.txt
+        │       ├── sta_4_opt_1230.txt
+        │       ├── vca_1_opt_0.txt
+        │       └── vca_1_opt_330.txt
+        └── deform and sampling
+            ├── deform_1.in
+            ├── deform_2.in
+            ├── deform_output
+            │   └── vca_1_opt_273
+            │       ├── vca_1_opt_-1.txt
+            │       ├── vca_1_opt_-10.txt
+            │       ├── ... 
+            └── self_nvt.in
 
-13 directories, 143 files
+22 directories, 359 files

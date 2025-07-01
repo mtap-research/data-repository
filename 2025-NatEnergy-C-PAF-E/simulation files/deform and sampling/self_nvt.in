@@ -1,0 +1,70 @@
+# LAMMPS Input Script: Deformation with NVT Simulation
+shell mkdir self_output
+shell mkdir self_structures
+shell mkdir self_output/${struc}_${T}
+shell mkdir self_structures/${struc}_${T}
+
+# Initialization
+units           real                    # Units in real (angstroms, femtoseconds, kcal/mol)
+atom_style      full                    # Atom style for full molecular systems
+boundary        p p p                   # Periodic boundary conditions in all directions
+
+# Variables
+# variable        T equal 298             # Temperature (K)
+# variable        nvt_steps equal 10000   # NVT steps for averaging (adjust as needed)
+
+# Force Field Settings
+pair_style      lj/cut/coul/long 12.0 12.0  # Lennard-Jones and long-range Coulomb interactions
+bond_style      harmonic                   # Harmonic potential for bond interactions
+angle_style     harmonic                   # Harmonic potential for angle interactions
+dihedral_style  harmonic                   # Harmonic potential for dihedral interactions
+improper_style  cvff                       # CVFF-specific improper interactions
+
+# Read Data File
+read_data       ori/${struc}.data
+
+# KSpace and Neighbor Settings
+kspace_style    pppm 1.0e-4                # PPPM method for long-range Coulomb interactions
+special_bonds   lj/coul 0.0 0.0 0.5
+neighbor        2.0 bin
+neigh_modify    delay 5 every 1 check yes
+
+# Energy Minimization
+minimize        1.0e-4 1.0e-6 1000 1000
+
+# Step 2: Run NVT simulation at the fixed box size
+velocity        all create ${T} 12345 mom yes rot yes dist gaussian
+fix             nvt all nvt temp ${T} ${T} 100.0
+
+# Time Step and Run NVT
+run 10000
+
+# Step 3: Calculate averages and output to file
+variable step equal step
+variable temp equal temp
+variable press equal press
+variable pe equal pe
+variable ke equal ke
+variable etotal equal etotal
+variable enthalpy equal enthalpy
+variable vol equal vol
+variable a equal lx
+variable b equal ly
+variable c equal lz
+
+# Thermo output settings
+thermo_style    custom step temp pe ke etotal enthalpy press vol lx ly lz
+thermo          100  # Output every 100 steps to the screen and log file
+fix thermo_output all print 100 "${step} ${temp} ${press} ${pe} ${ke} ${etotal} ${enthalpy} ${vol} ${a} ${b} ${c}" file self_output/${struc}_${T}/${struc}.txt screen no
+
+# Time Step and Run NVT
+run 50000
+
+# Save Intermediate Structures
+write_data      self_structures/${struc}_${T}/${struc}_${strain}.data
+
+# Clear Fixes for Next Step
+unfix nvt
+
+# Finalization
+# write_data      final_structure.data

@@ -1,0 +1,108 @@
+# LAMMPS Input Script: Deformation with NVT Simulation
+# lmp -in lammps.in -var struc ${s} -var T ${t} -var P ${P} -var n_mol ${n}
+
+shell mkdir self_output
+shell mkdir self_structures
+shell mkdir traj
+shell mkdir self_output/${struc}_${T}
+shell mkdir self_structures/${struc}_${T}
+shell mkdir traj/${struc}_${T}
+
+# Initialization
+units           real                    # Units in real (angstroms, femtoseconds, kcal/mol)
+atom_style      full                    # Atom style for full molecular systems
+boundary        p p p                   # Periodic boundary conditions in all directions
+
+# Define force field parameters
+pair_style      lj/cut 14.0
+bond_style      harmonic                   # Harmonic potential for bond interactions
+angle_style     harmonic                   # Harmonic potential for angle interactions
+dihedral_style  harmonic                   # Harmonic potential for dihedral interactions
+improper_style  cvff                       # CVFF-specific improper interactions
+
+# Step 1: Load Empty Framework and Insert N2 Molecules
+read_data       ori/${struc}.data extra/atom/types 2 extra/bond/types 2 extra/angle/types 1  # Load empty framework data
+
+# Define N2 molecule
+
+mass 5 14.00674  # N_n2
+mass 6 0.1	 # N_com
+bond_coeff 7 10000.0 0.55
+bond_coeff 8 100000.0 1.10
+angle_coeff 10 500.0 180.0
+
+# Define only N2 interactions
+pair_coeff      5 5  0.07154  3.310  # N_n2
+pair_coeff      6 6  0.000  0.00     # N_com
+
+molecule        n2 N2.data
+
+# Insert N2 molecules
+create_atoms    0 random ${n_mol} 12345 NULL mol n2 12345 overlap 2
+group n2group type 5 6  # assuming 5 = N_n2, 6 = N_com
+set group n2group image 0 0 0
+
+group framework subtract all n2group
+
+pair_modify tail yes mix arithmetic   # Ensure proper mixing rule
+
+# KSpace and Neighbor Settings
+special_bonds   lj/coul 0.0 0.0 0.5
+neighbor        2.0 bin
+neigh_modify    delay 5 every 1 check yes
+
+timestep 0.1
+# Step 2: Minimize and Relax New Structure
+minimize        1.0e-4 1.0e-6 1000 1000
+# minimize        1.0e-4 1.0e-6 10 100
+write_data      self_structures/${struc}_${T}/${struc}_${n_mol}.data
+# comm_modify cutoff 100.0
+
+pair_style      lj/cut/coul/long 14.0 12.0  # Lennard-Jones and long-range Coulomb interactions
+kspace_style    ewald 1.0e-4                # Ewald method for long-range Coulomb interactions
+pair_coeff      1 1  0.1479999981   3.6170487995 # cp
+pair_coeff      2 2  0.0380000011   2.4499714540 # h
+pair_coeff      3 3  0.1599999990   3.4745050026 # c
+pair_coeff      4 4  0.0389999952   3.8754094636 # c2
+pair_coeff      5 5  0.07154  3.310  # N_n2
+pair_coeff      6 6  0.000  0.00     # N_com
+
+# fix fixn2 n2group rigid/small molecule
+fix             relax all npt temp ${T} ${T} 100.0 iso ${P} ${P} 1000.0
+
+run             10000
+
+# Step 5: Calculate Averages and Output to File
+variable step equal step
+variable temp equal temp
+variable press equal press
+variable pe equal pe
+variable ke equal ke
+variable evdwl equal evdwl
+variable ecoul equal ecoul
+variable epair equal epair
+variable ebond equal ebond
+variable eangle equal eangle
+variable etotal equal etotal
+variable vol equal vol
+variable a equal lx
+variable b equal ly
+variable c equal lz
+
+# Thermo output settings
+thermo_style    custom step temp pe ke etotal enthalpy press vol lx ly lz
+thermo          1000  # Output every 100 steps to the screen and log file
+fix thermo_output all print 1000 "${step} ${temp} ${press} ${pe} ${ke} ${evdwl} ${ecoul} ${epair} ${ebond} ${eangle} ${etotal} ${vol} ${a} ${b} ${c}" file self_output/${struc}_${T}/${struc}_${n_mol}.txt screen no
+
+# Dump Trajectory
+dump            traj_output all custom 1000 traj/${struc}_${T}/${struc}_${n_mol}.lammpstrj id type x y z ix iy iz
+dump_modify     traj_output sort id  # Ensure sorting by atom ID for consistent output
+
+# Time Step and Run NVT
+run 200000
+
+# Clear Fixes for Next Step
+unfix           relax
+
+# Save Relaxed Structure
+write_data      self_structures/${struc}_${T}/${struc}_${n_mol}.data

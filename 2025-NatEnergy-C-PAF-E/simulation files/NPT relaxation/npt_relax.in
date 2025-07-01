@@ -1,0 +1,69 @@
+# LAMMPS Input Script: NPT Simulation
+
+# Initialization
+units           real                    # Units in real (angstroms, femtoseconds, kcal/mol)
+atom_style      full                    # Atom style for full molecular systems
+boundary        p p p                   # Periodic boundary conditions in all directions
+
+variable T equal 77
+# variable struc string acs_0_700
+
+# Force Field Settings
+pair_style      lj/cut/coul/long 12.0 12.0  # Lennard-Jones and long-range Coulomb interactions; cutoff distances can be adjusted as needed
+bond_style      harmonic                   # Harmonic potential for bond interactions in CVFF
+angle_style     harmonic                   # Harmonic potential for angle interactions in CVFF
+dihedral_style  harmonic                   # Harmonic potential for dihedral interactions in CVFF
+improper_style  cvff                       # CVFF-specific improper interactions
+
+# Read Data File
+read_data       opt_minimize/${struc}_opt.data
+
+kspace_style    pppm 1.0e-4                # PPPM method for long-range Coulomb interactions; precision can be adjusted as needed
+
+# Special Bonds Scaling Factors (as per CVFF requirements)
+special_bonds   lj/coul 0.0 0.0 0.5
+
+# Neighbor List Settings
+neighbor        2.0 bin
+neigh_modify    delay 5 every 1 check yes
+
+# Initialize Velocities
+velocity        all create ${T} 12345 mom yes rot yes dist gaussian  # Replace [Temperature] with desired value
+
+# Apply NPT Ensemble
+fix             1 all npt temp ${T} ${T} 100.0 iso 1.0 1.0 1000.0  # Replace [Temperature] with desired value
+
+# Time Step
+timestep        1.0  # 1 fs
+
+run		1000
+
+# Define Variables for Output
+variable step equal step
+variable temp equal temp
+variable press equal press
+variable pe equal pe
+variable ke equal ke
+variable etotal equal etotal
+variable vol equal vol
+variable a equal lx
+variable b equal ly
+variable c equal lz
+
+# Output Settings
+thermo          100
+thermo_style    custom step temp press pe ke etotal vol lx ly lz # Output step, temperature, pressure, potential energy, kinetic energy, total energy, and volume
+
+# Print Thermo Data to File
+fix thermo_output all print 10 "${step} ${temp} ${press} ${pe} ${ke} ${etotal} ${vol} ${a} ${b} ${c}" file npt_output/${struc}_output.txt screen no
+
+
+# Dump Trajectory
+dump            traj_output all custom 10 traj/${struc}.lammpstrj id type x y z ix iy iz
+dump_modify     traj_output sort id  # Ensure sorting by atom ID for consistent output
+
+# Run Simulation
+run             20000  # 20 ps
+
+# Save Final Configuration
+# write_data      final_struc.data

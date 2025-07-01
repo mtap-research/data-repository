@@ -1,0 +1,92 @@
+# LAMMPS Input Script: Deformation with NVT Simulation
+shell mkdir deform_output
+shell mkdir deform_structures
+shell mkdir deform_output/${struc}_${T}
+shell mkdir deform_structures/${struc}_${T}
+
+# Initialization
+units           real                    # Units in real (angstroms, femtoseconds, kcal/mol)
+atom_style      full                    # Atom style for full molecular systems
+boundary        p p p                   # Periodic boundary conditions in all directions
+
+# Variables
+# variable        T equal 298             # Temperature (K)
+variable        step_size equal 0.0001   # Deformation step size (strain)
+variable        steps equal 100         # Number of deformation steps
+# variable        nvt_steps equal 10000   # NVT steps for averaging (adjust as needed)
+
+# Force Field Settings
+pair_style      lj/cut/coul/long 12.0 12.0  # Lennard-Jones and long-range Coulomb interactions
+bond_style      harmonic                   # Harmonic potential for bond interactions
+angle_style     harmonic                   # Harmonic potential for angle interactions
+dihedral_style  harmonic                   # Harmonic potential for dihedral interactions
+improper_style  cvff                       # CVFF-specific improper interactions
+
+# Read Data File
+read_data       ori/${struc}.data
+
+# KSpace and Neighbor Settings
+kspace_style    pppm 1.0e-4                # PPPM method for long-range Coulomb interactions
+special_bonds   lj/coul 0.0 0.0 0.5
+neighbor        2.0 bin
+neigh_modify    delay 5 every 1 check yes
+
+# Energy Minimization
+minimize        1.0e-4 1.0e-6 1000 1000
+
+# Main Deformation and Simulation Loop
+variable strain loop ${steps}
+variable curr_strain equal v_strain*v_step_size
+label loop_start
+
+# Step 1: Deform the simulation box and fix the new size
+variable scale_factor equal 1.0-v_curr_strain
+fix deform_box all deform 1 x scale ${scale_factor} y scale ${scale_factor} z scale ${scale_factor} remap x
+run 1000  
+unfix deform_box  # Fix the box at the new size
+
+# Step 2: Run NVT simulation at the fixed box size
+velocity        all create ${T} 12345 mom yes rot yes dist gaussian
+fix             nvt all nvt temp ${T} ${T} 100.0
+
+# Time Step and Run NVT
+run 10000
+
+# Step 3: Calculate averages and output to file
+# fix ave_output all ave/time 100 100 10000 v_temp v_pe v_ke v_etotal v_press v_vol v_lx v_ly v_lz file deform_output/${struc}/${struc}_avg_-${strain}.txt 
+
+variable step equal step
+variable temp equal temp
+variable press equal press
+variable pe equal pe
+variable ke equal ke
+variable etotal equal etotal
+variable enthalpy equal enthalpy
+variable vol equal vol
+variable a equal lx
+variable b equal ly
+variable c equal lz
+
+# Thermo output settings
+thermo_style    custom step temp pe ke etotal enthalpy press vol lx ly lz
+thermo          100  # Output every 100 steps to the screen and log file
+fix thermo_output all print 100 "${step} ${temp} ${press} ${pe} ${ke} ${etotal} ${enthalpy} ${vol} ${a} ${b} ${c}" file deform_output/${struc}_${T}/${struc}_-${strain}.txt screen no
+
+# Time Step and Run NVT
+run 50000
+
+# Save Intermediate Structures
+write_data      deform_structures/${struc}_${T}/${struc}_-${strain}.data
+
+# Clear Fixes for Next Step
+unfix nvt
+unfix thermo_output
+
+# unfix ave_output
+
+# Loop Control
+next strain
+jump SELF loop_start
+
+# Finalization
+# write_data      final_structure.data
